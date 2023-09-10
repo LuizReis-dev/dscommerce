@@ -23,7 +23,6 @@ public class OrderController {
     @Autowired
     private OrderService service;
 
-    @PreAuthorize(("hasAnyRole('ROLE_ADMIN')"))
     @GetMapping(value = "/{id}")
     public ResponseEntity<OrderDTO> findById(@PathVariable Long id){
         OrderDTO dto = service.findById(id);

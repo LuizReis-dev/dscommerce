@@ -2,10 +2,7 @@ package com.luizreis.dscommerce.dto;
 
 import com.luizreis.dscommerce.entities.Category;
 import com.luizreis.dscommerce.entities.Product;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.aspectj.bridge.Message;
 
 import java.util.ArrayList;
@@ -21,7 +18,8 @@ public class ProductDTO {
     @Size(min=10, message="Descrição precisa ter no mínimo 10 caracteres")
     @NotBlank(message = "Campo requirido")
     private String description;
-    @Positive
+    @Positive(message="O preço deve ser positivo")
+    @NotNull(message="Campo requirido")
     private Double price;
     private String imgUrl;
     @NotEmpty(message = "Deve ter pelo menos uma categoria")
